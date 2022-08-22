@@ -5,6 +5,7 @@ public class Main {
         task01();
         task02();
         task03();
+        task04();
     }
 
     public static void task01() {
@@ -59,5 +60,31 @@ public class Main {
         }
 
         return String.valueOf(deliveryDays);
+    }
+
+    public static void task04() {
+        System.out.println("Средняя сумма трат за месяц составила " + calcAverageAmount() + " рублей.");
+    }
+
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+
+            arr[i] = random.nextInt(40_000) + 10_000;
+
+        }
+        return arr;
+    }
+
+    public static String calcAverageAmount() {
+        int[] arr = generateRandomArray();
+        int total = 0;
+
+        for (int sum : arr) {
+            total += sum;
+        }
+
+        return String.valueOf((float) total / arr.length);
     }
 }
