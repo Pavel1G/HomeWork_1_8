@@ -22,8 +22,8 @@ public class Main {
     }
 
     public static void task02() {
-        int clientOS = 0;
-        int clientDeviceYear = 2020;
+        int clientOS = 1;
+        int clientDeviceYear = 2022;
 
         System.out.println(checkInstallOS(clientOS, clientDeviceYear));
     }
@@ -31,16 +31,20 @@ public class Main {
     public static String checkInstallOS(int clientOs, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
 
-        if (clientOs == 0 && clientDeviceYear == currentYear) {
-            return "Установите версию приложения для iOS по ссылке";
-        } else if (clientOs == 0 && clientDeviceYear < currentYear) {
-            return "Установите облегченную версию приложения для iOS по ссылке";
-        } else if (clientOs == 1 && clientDeviceYear == currentYear) {
-            return "Установите версию приложения для Android по ссылке";
-        } else if (clientOs == 1 && clientDeviceYear < currentYear) {
-            return "Установите облегченную версию приложения для Android по ссылке";
-        }
-        return "Неверно введены данные";
+        String device = clientOs == 0 ? "iOS" : "Android";
+        String version = clientDeviceYear == currentYear ? "" : " облегченную";
+        return String.format("Установите%s версию приложения для %s по ссылке", version, device);
+
+//        if (clientOs == 0 && clientDeviceYear == currentYear) {
+//            return "Установите версию приложения для iOS по ссылке";
+//        } else if (clientOs == 0 && clientDeviceYear < currentYear) {
+//            return "Установите облегченную версию приложения для iOS по ссылке";
+//        } else if (clientOs == 1 && clientDeviceYear == currentYear) {
+//            return "Установите версию приложения для Android по ссылке";
+//        } else if (clientOs == 1 && clientDeviceYear < currentYear) {
+//            return "Установите облегченную версию приложения для Android по ссылке";
+//        }
+//        return "Неверно введены данные";
     }
 
     public static void task03() {
